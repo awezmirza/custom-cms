@@ -1,0 +1,21 @@
+.ratings {
+    display: flex;
+}
+
+.rating-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #121212;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.current-rating {
+    width: max-content;
+}
+
+.ratings > * {
+    padding: 0 15px;
+}

@@ -1,0 +1,17 @@
+div.shimmer {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+    0%,
+    100% {
+        background-color: rgb(59, 59, 59);
+    }
+
+    50% {
+        background-color: rgb(0, 0, 0);
+    }
+}

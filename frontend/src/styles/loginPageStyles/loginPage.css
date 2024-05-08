@@ -1,0 +1,97 @@
+.login-page-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-components-container {
+    border-radius: 50px;
+    overflow: hidden;
+    margin-top: 25px;
+    position: relative;
+    width: 80vw;
+    height: 75vh;
+}
+
+.login-page-banner {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.components-container {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    transition: left 0.25s linear;
+}
+
+.abs-pos-right {
+    left: 50%;
+}
+
+.abs-pos-left {
+    left: 0;
+}
+
+.glass-effect {
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.toggle-login-register-btn {
+    all: unset;
+    cursor: pointer;
+    margin-top: 20px;
+
+    &:hover {
+        color: rgb(196, 196, 196);
+
+        & span {
+            color: rgb(196, 196, 196);
+        }
+    }
+
+    & span {
+        text-decoration: underline;
+    }
+}
+
+.line-container {
+    display: flex;
+    align-items: center;
+    width: 60%;
+    margin-block: 3px 5px;
+}
+
+.line {
+    flex-grow: 1;
+    border-top: 3px solid rgb(255, 255, 255);
+}
+
+.or-text {
+    margin: 0 10px;
+}
+
+.forgot-pass-btn-container {
+    margin-block: 10px 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.forgot-pass-btn {
+    font-size: 16px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+
+    &:hover {
+        color: rgb(196, 196, 196);
+    }
+}

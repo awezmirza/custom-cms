@@ -1,0 +1,16 @@
+.ratings span {
+    color: yellow;
+    font-size: 24px !important;
+    cursor: pointer;
+}
+
+.ratings h3,
+.ratings h2 {
+    display: flex;
+    align-items: center;
+}
+
+.selectedRating {
+    /* filter: drop-shadow(rgb(255, 255,0,0.3) 0 0px 20px); */
+    font-variation-settings: "FILL" 1;
+}

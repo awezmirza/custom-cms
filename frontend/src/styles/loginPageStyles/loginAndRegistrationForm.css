@@ -1,0 +1,127 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    /* height: 68%; */
+}
+
+.input-container {
+    width: 60%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.input-field {
+    border: none;
+    background: rgba(103, 103, 103, 0.625);
+    width: 100%;
+    height: 50px;
+    font-size: large;
+    border-radius: 27px;
+    padding-left: 60px;
+    padding-right: 10px;
+
+    &::placeholder {
+        color: white;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &[type="password"]::-ms-reveal {
+        display: none;
+    }
+
+    &[type="number"]::-webkit-inner-spin-button,
+    &[type="number"]::-webkit-outer-spin-button {
+        appearance: none;
+    }
+}
+
+.submit-btn {
+    border: none;
+    background: rgb(255, 255, 255);
+    width: 60%;
+    height: 50px;
+    /* margin-top: 20px; */
+    font-size: larger;
+    border-radius: 27px;
+    cursor: pointer;
+    font-weight: bold;
+    color: black;
+
+    &:hover {
+        background: rgb(196, 196, 196);
+    }
+}
+
+.label-icon-container {
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: -10px;
+    height: 60px;
+    width: 60px;
+
+    & .label-icon {
+        color: black !important;
+        font-size: 32px;
+    }
+}
+
+.change-email-button {
+    all: unset;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.change-email-container {
+    margin-bottom: 5px;
+}
+
+.change-email-container,
+.change-email-button,
+.resend-otp-button-container {
+    display: flex;
+    align-items: center;
+}
+
+.four-dig-otp-field {
+    margin-bottom: 0;
+}
+
+.resend-otp-button-container {
+    justify-content: flex-end;
+    width: 60%;
+    margin-block: 5px 18px;
+
+    & button {
+        border: none;
+        background: rgb(255, 255, 255);
+        padding: 5px 10px;
+        border-radius: 27px;
+        cursor: pointer;
+        font-weight: bold;
+        color: black;
+
+        &:hover {
+            background: rgb(196, 196, 196);
+        }
+
+        &:disabled {
+            background: rgb(172, 172, 172);
+            cursor: not-allowed;
+        }
+    }
+}
+
+.change-email-text {
+    width: max-content;
+}

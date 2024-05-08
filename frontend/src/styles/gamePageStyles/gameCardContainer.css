@@ -1,0 +1,10 @@
+.game-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background: #1e1f20;
+    margin: 25px 50px;
+    padding: 50px;
+    border-radius: 50px;
+    min-height: 250px;
+}
