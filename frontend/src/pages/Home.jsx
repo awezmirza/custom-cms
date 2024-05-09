@@ -4,13 +4,11 @@ import GameCardContainer from "../components/gamePageComponents/GameCardsContain
 import useLogout from "../utils/useLogout";
 
 const Home = () => {
-    const logout = useLogout();
 
     return (
         <>
             <GameCardContainer />
             <Link to={"/auth/login"}>Login</Link>
-            <button onClick={logout}> Logout </button>
         </>
     );
 };

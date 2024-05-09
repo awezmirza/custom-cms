@@ -1,4 +1,3 @@
-import Footer from "../components/Footer";
 import Navbar from "../components/navbarComponents/Navbar";
 import { Outlet, useSearchParams } from "react-router-dom";
 
@@ -38,11 +37,14 @@ const LayoutRoot = () => {
         }
     }, []);
 
+    // TODO - Check Toastify location 
+
     return (
         <>
             <Navbar />
-            <Outlet />
-            <Footer />
+            <div>
+                <Outlet />
+            </div>
         </>
     );
 };

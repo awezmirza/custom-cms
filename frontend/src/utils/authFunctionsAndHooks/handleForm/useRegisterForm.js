@@ -1,7 +1,6 @@
 import {
     isValidPassword,
-    isValidEmail,
-    isInvalidUsername
+    isValidEmail
 } from "../validators/validatorIndex.js";
 import { toast } from "react-toastify";
 import axios from "axios";
@@ -31,11 +30,6 @@ const useRegisterForm = () => {
                 return toast.error("Email is not valid");
             }
 
-            const usernameError = isInvalidUsername(inputs.username);
-            if (usernameError) {
-                return toast.error(usernameError);
-            }
-
             if (inputs.password !== inputs.confirmPassword) {
                 return toast.error("Passwords don't match");
             }
@@ -48,8 +42,7 @@ const useRegisterForm = () => {
             const res = await toast.promise(
                 axios.post(USER_SERVICE_URL + "/signup", {
                     email: inputs.email,
-                    password: inputs.password,
-                    username: inputs.username
+                    password: inputs.password
                 }),
                 {
                     pending: "Registering..."

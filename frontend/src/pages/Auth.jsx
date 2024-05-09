@@ -31,77 +31,83 @@ const Auth = () => {
     }, [purpose]);
 
     return (
-        <div className="login-page-container">
-            <div className="login-components-container">
-                <img
-                    className="login-page-banner"
-                    src={LOGIN_PAGE_BANNER_URL}
-                    alt="Login Page Banner"
-                />
-                <div
-                    className={
-                        "components-container glass-effect " +
-                        (wantsToRegister ? "abs-pos-left" : "abs-pos-right")
-                    }
-                >
-                    {wantsToRegister ? (
-                        <RegistrationForm />
-                    ) : (
-                        <>
-                            {showResetPassword ? <ResetPass /> : <LoginForm />}
-
-                            <div className="forgot-pass-btn-container">
-                                <button
-                                    className="forgot-pass-btn"
-                                    type="button"
-                                    onClick={() => {
-                                        if (showResetPassword) {
-                                            navigate("/auth/login");
-                                        } else {
-                                            navigate("/auth/reset-pass");
-                                        }
-                                    }}
-                                >
-                                    {showResetPassword ? (
-                                        <>Back to login</>
-                                    ) : (
-                                        <>Forgot Password?</>
-                                    )}
-                                </button>
-                            </div>
-                        </>
-                    )}
-
-                    <div className="line-container">
-                        <div className="line"></div>
-                        <div className="or-text">OR</div>
-                        <div className="line"></div>
-                    </div>
-
-                    <GoogleLoginComponent />
-                    <button
-                        type="button"
-                        className="toggle-login-register-btn"
-                        onClick={() => {
-                            if (wantsToRegister) {
-                                navigate("/auth/login");
-                            } else {
-                                navigate("/auth/register");
-                            }
-                        }}
+        <div className="master">
+            <div className="login-page-container">
+                <div className="login-components-container">
+                    <img
+                        className="login-page-banner"
+                        src={LOGIN_PAGE_BANNER_URL}
+                        alt="Login Page Banner"
+                    />
+                    <div
+                        className={
+                            "components-container glass-effect " +
+                            (wantsToRegister ? "abs-pos-left" : "abs-pos-right")
+                        }
                     >
                         {wantsToRegister ? (
-                            <>
-                                Already have an account?&nbsp;
-                                <span>Click to Login</span>
-                            </>
+                            <RegistrationForm />
                         ) : (
                             <>
-                                Don't have an account?&nbsp;
-                                <span>Click to Register</span>
+                                {showResetPassword ? (
+                                    <ResetPass />
+                                ) : (
+                                    <LoginForm />
+                                )}
+
+                                <div className="forgot-pass-btn-container">
+                                    <button
+                                        className="forgot-pass-btn"
+                                        type="button"
+                                        onClick={() => {
+                                            if (showResetPassword) {
+                                                navigate("/auth/login");
+                                            } else {
+                                                navigate("/auth/reset-pass");
+                                            }
+                                        }}
+                                    >
+                                        {showResetPassword ? (
+                                            <>Back to login</>
+                                        ) : (
+                                            <>Forgot Password?</>
+                                        )}
+                                    </button>
+                                </div>
                             </>
                         )}
-                    </button>
+
+                        <div className="line-container">
+                            <div className="line"></div>
+                            <div className="or-text">OR</div>
+                            <div className="line"></div>
+                        </div>
+
+                        <GoogleLoginComponent />
+                        <button
+                            type="button"
+                            className="toggle-login-register-btn"
+                            onClick={() => {
+                                if (wantsToRegister) {
+                                    navigate("/auth/login");
+                                } else {
+                                    navigate("/auth/register");
+                                }
+                            }}
+                        >
+                            {wantsToRegister ? (
+                                <>
+                                    Already have an account?&nbsp;
+                                    <span>Click to Login</span>
+                                </>
+                            ) : (
+                                <>
+                                    Don't have an account?&nbsp;
+                                    <span>Click to Register</span>
+                                </>
+                            )}
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

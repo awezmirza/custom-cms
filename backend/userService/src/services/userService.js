@@ -97,6 +97,17 @@ class UserService {
         });
         return token;
     }
+
+    async getUserDetails(
+        data,
+        fields = "name location _id username totalFriends isPublic"
+    ) {
+        const user = await this.userRepository.getOneByData(data, fields);
+        if (!user) {
+            throw new customError(400, "No user found");
+        }
+        return user;
+    }
 }
 
 export default UserService;

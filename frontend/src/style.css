@@ -9,6 +9,12 @@ body {
     background-color: #131314 !important;
 }
 
+#root{
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
 ::-webkit-scrollbar {
     width: 2px;
     background-color: #343434;

@@ -11,9 +11,12 @@ const userSchema = new mongoose.Schema(
         avatar: {
             type: String
         },
-        isGoogleLogin: {
-            type: Boolean,
-            default: false
+        tables: {
+            type: [{
+                tableName: String,
+                tableId: String
+            }],
+            default: []
         }
     },
     { timestamps: true }

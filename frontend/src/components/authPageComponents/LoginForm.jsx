@@ -15,7 +15,7 @@ const LoginForm = () => {
 
     return (
         <>
-            <h1>Login</h1>
+            <h1 className="auth-label">Login</h1>
             <form
                 className="form-container"
                 onSubmit={(e) => handleLoginSubmit(e, inputs)}

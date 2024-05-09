@@ -2,12 +2,17 @@ import "../../styles/navbar.css";
 import { LOGO_URL } from "../../utils/constant";
 import { NavLink } from "react-router-dom";
 import UserProfileNavbarButton from "./UserProfileNavbarButton";
+import useLogout from "../../utils/useLogout";
+
+// TODO Edit Different Pages
 
 const Navbar = () => {
+    const logout = useLogout();
+
     return (
         <>
             <div className="navbar-container">
-                <div>
+                <div className="logo-container">
                     <NavLink to="/">
                         <img src={LOGO_URL} alt="Logo" className="logo" />
                     </NavLink>
@@ -26,8 +31,15 @@ const Navbar = () => {
                         <span className="material-symbols-rounded">public</span>
                         <div className="nav-label">Near me</div>
                     </NavLink>
+                    <UserProfileNavbarButton />
                 </div>
-                <UserProfileNavbarButton />
+
+                <div className="logout-container">
+                    <div onClick={logout} className="logout-button">
+                        <span className="material-symbols-rounded">logout</span>
+                        <div className="nav-label">Logout</div>
+                    </div>
+                </div>
             </div>
         </>
     );

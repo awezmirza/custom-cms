@@ -16,7 +16,7 @@ const ResetPass = () => {
 
     return (
         <>
-            <h1> Reset Password</h1>
+            <h1 className="auth-label"> Reset Password</h1>
             <form
                 onSubmit={submitResetPassFormDetails}
                 className="form-container"

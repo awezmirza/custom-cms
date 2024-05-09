@@ -4,6 +4,7 @@ import {
     login,
     signup,
     noRouteController,
+    getMyDetails,
 } from "../controllers/index.js";
 import { errorMiddleware } from "../errors/errorMiddlewares/index.js";
 import { asyncErrorHandler } from "../errors/errorUtils/index.js";
@@ -19,6 +20,7 @@ router.get("/ping", (req, res) => {
 router.post("/signup", asyncErrorHandler(signup));
 router.post("/login", asyncErrorHandler(login));
 router.get("/verify-token", verifyToken);
+router.get("/get-my-details", asyncErrorHandler(getMyDetails));
 
 router.use("/google-web-login", googleWebLoginRouter);
 router.use("/reset-password", resetPasswordRouter);
