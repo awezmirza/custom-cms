@@ -1,7 +1,4 @@
-import {
-    isValidPassword,
-    isValidEmail
-} from "../validators/validatorIndex.js";
+import { isValidPassword, isValidEmail } from "../validators/validatorIndex.js";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { USER_SERVICE_URL } from "../../constant.js";
@@ -61,8 +58,8 @@ const useRegisterForm = () => {
         } catch (error) {
             toast.error(
                 error?.response?.data?.message ||
-                error?.message ||
-                "Something went wrong"
+                    error?.message ||
+                    "Something went wrong"
             );
         }
     };

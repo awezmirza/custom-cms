@@ -43,10 +43,10 @@
     margin-inline: 10px 20px;
     font-size: 34px !important;
     font-variation-settings:
-    "wght" 400,
-    "GRAD" 100,
-    "opsz" 10,
-    "FILL" 0;
+        "wght" 400,
+        "GRAD" 100,
+        "opsz" 10,
+        "FILL" 0;
 }
 
 .navbar-profile-pic {
@@ -57,12 +57,12 @@
     object-fit: cover;
 }
 
-.logout-container{
+.logout-container {
     height: 100%;
     position: relative;
 }
 
-.logout-button{
+.logout-button {
     all: unset;
     height: 50px;
     cursor: pointer;
@@ -87,7 +87,7 @@
     }
 }
 
-.logo-container{
+.logo-container {
     display: flex;
     justify-content: center;
 }

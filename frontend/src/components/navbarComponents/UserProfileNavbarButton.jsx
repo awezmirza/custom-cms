@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import Shimmer from "../Shimmer";
 
 const UserProfileNavbarButton = () => {
     const { userProfileDetails, userDataLoading } = useSelector(
@@ -19,9 +18,7 @@ const UserProfileNavbarButton = () => {
                         alt="User Profile Pic"
                     />
                 )}
-                <div className="nav-label">
-                    {userDataLoading ? <Shimmer /> : "Profile"}
-                </div>
+                <div className="nav-label">Profile </div>
             </NavLink>
         </div>
     );

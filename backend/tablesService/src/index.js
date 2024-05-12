@@ -2,8 +2,9 @@ import express from "express";
 import { PORT } from "./config/index.js";
 import router from "./routes/index.js";
 import cors from "cors";
-import initializeDatabase from "./sequelize/initializeDatabase.js";
-import generateModelColumns from "./utils/generateModelColumns.js";
+// import initializeDatabase from "./sequelize/initializeDatabase.js";
+// import generateModelColumns from "./utils/generateModelColumns.js";
+// import createModel from "./sequelize/createModel.js";
 // import User from "./models/test.js";
 
 const app = express();
@@ -22,6 +23,29 @@ const initializeServer = () => {
 const server = app.listen(PORT, async () => {
     initializeServer();
     console.log("Listening on port: ", PORT);
+
+    // const test = generateModelColumns([
+    //     { name: "Index", type: "String", allowNull: false },
+    //     { name: "Title", type: "String", allowNull: false },
+    //     { name: "Publish Date", type: "Int", allowNull: true },
+    // ]);
+    // const table = createModel("Teasts", test);
+
+    // async function createTable() {
+    //     try {
+    //         const newBook = await table.create({
+    //             Index: 'testIdx',
+    //             Title: 'John Doe',
+    //             Publish_Date: 2024
+    //         });
+    //         console.log('Book created:', newBook.toJSON());
+    //     } catch (error) {
+    //         console.error('Error creating book:', error);
+    //     }
+    // }
+    // createTable();
+
+    // initializeDatabase();
 });
 
 process.on("unhandledRejection", (err) => {

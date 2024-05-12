@@ -9,8 +9,8 @@ const signup = async (req, res) => {
     const email = req.body?.email?.toLowerCase();
     const password = req.body?.password;
 
-    validatePassword(password);
     validateEmail(email);
+    validatePassword(password);
 
     const userService = new UserService();
 

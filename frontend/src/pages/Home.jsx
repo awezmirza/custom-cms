@@ -1,15 +1,22 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import GameCardContainer from "../components/gamePageComponents/GameCardsContainer";
-
-import useLogout from "../utils/useLogout";
+import Shimmer from "../components/Shimmer";
+import "../styles/homePageStyles/home.css";
+import TableDataContainer from "../components/homePageComponents/TableDataContainer.jsx";
 
 const Home = () => {
-
+    const { userDataLoading } = useSelector((state) => state.userDataSlice);
     return (
-        <>
-            <GameCardContainer />
+        <div className="home-page-container">
+            {userDataLoading ? (
+                <Shimmer styleClass={"home-page-shimmer"} />
+            ) : (
+                <>
+                    <TableDataContainer />
+                </>
+            )}
             <Link to={"/auth/login"}>Login</Link>
-        </>
+        </div>
     );
 };
 

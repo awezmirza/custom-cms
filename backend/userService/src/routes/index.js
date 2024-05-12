@@ -4,7 +4,7 @@ import {
     login,
     signup,
     noRouteController,
-    getMyDetails,
+    getMyDetails
 } from "../controllers/index.js";
 import { errorMiddleware } from "../errors/errorMiddlewares/index.js";
 import { asyncErrorHandler } from "../errors/errorUtils/index.js";

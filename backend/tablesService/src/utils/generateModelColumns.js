@@ -1,25 +1,35 @@
-// input type = [{name : "ColumnName", "type" : "ColumnType", "required" : "true/false"}]
+// input type = [{name : "ColumnName", "type" : "ColumnType", required : "true/false", unique : "true/false"}]
 // Ex: [{"name" : "Index", "type"}]
+import { DataTypes } from "sequelize";
 
 const generateModelColumns = (inputArray) => {
+
+    const dataTypeMap = {
+        "String": DataTypes.STRING,
+        "Int": DataTypes.INTEGER,
+        "Bool": DataTypes.BOOLEAN,
+        "Date": DataTypes.DATE,
+    }
+
     const modelColumns = {};
     inputArray.map((input) => {
 
         const name = input.name.replace(/[-\s]+/g, '_');
 
         modelColumns[name] = {
-            type: input?.type || STRING,
-            allowNull: input?.allowNull || false
+            type: dataTypeMap[input?.type] || DataTypes.STRING,
+            allowNull: input?.allowNull || false,
+            unique: input?.unique || false
         }
     });
     return modelColumns;
 }
 
 // const test = generateModelColumns([
-//     { name: "Index", type: "STRING", allowNull: false },
-//     { name: "Title", type: "STRING", allowNull: false },
-//     { name: "Publish Date", type: "INTEGER", allowNull: true },
+//     { name: "Index", type: "String", allowNull: false, unique: true },
+//     { name: "Title", type: "String", allowNull: false, unique: true  },
+//     { name: "Publish Date", type: "Int", allowNull: true, unique: false  },
 // ]);
-// console.log(test);
+// console.log("test: ", test);
 
 export default generateModelColumns;

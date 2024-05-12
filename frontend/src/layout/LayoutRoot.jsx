@@ -1,5 +1,5 @@
 import Navbar from "../components/navbarComponents/Navbar";
-import { Outlet, useSearchParams } from "react-router-dom";
+import { Outlet, useNavigate, useSearchParams } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUserData, updateUserAccessToken } from "../config/userDataSlice";
@@ -20,6 +20,7 @@ const LayoutRoot = () => {
     }, [accessToken]);
 
     const params = useSearchParams()[0];
+    const navigate = useNavigate();
     useEffect(() => {
         if (!isLogin) {
             const token = getCookie("access-token");
@@ -33,11 +34,12 @@ const LayoutRoot = () => {
                 if (isLoginFailed === "true") {
                     toast.error("Login Failed");
                 }
+                navigate("/auth/login");
             }
         }
-    }, []);
+    }, [isLogin]);
 
-    // TODO - Check Toastify location 
+    // TODO - Check Toastify location
 
     return (
         <>
