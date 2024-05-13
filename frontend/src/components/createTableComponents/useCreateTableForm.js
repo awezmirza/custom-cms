@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { toast } from "react-toastify";
 // import {
 //     isValidPassword,
@@ -14,10 +15,31 @@ const useCreateTableForm = () => {
     // const navigate = useNavigate();
     // const dispatch = useDispatch();
 
-    const handleTableSubmit = async (event, inputs) => {
+    const [tableName, setTableName] = useState("");
+    const [fields, setFields] = useState([
+        {
+            name: "",
+            type: { value: "STRING", label: "String" },
+            required: { value: false, label: "False" },
+            unique: { value: false, label: "False" }
+        }
+    ]);
+
+    const handleTableSubmit = async (event) => {
         try {
             event.preventDefault();
-            console.log(inputs);
+
+            for (let i = 0; i < fields.length; i++) {
+                const field = fields[i];
+                if (!field.name) {
+                    toast.error(
+                        "Field name is required at Field Number " + (i + 1)
+                    );
+                    break;
+                }
+            }
+            // })
+            // console.log(tableName);
             // if (!isValidEmail(inputs.email)) {
             //     return toast.error("Email is not valid");
             // }
@@ -54,7 +76,39 @@ const useCreateTableForm = () => {
         }
     };
 
-    return { handleTableSubmit };
+    const handleChange = (idx, value, fieldName) => {
+        const data = [...fields];
+        data[idx][fieldName] = value;
+        setFields(data);
+    };
+
+    const handleDeleteField = (idx) => {
+        const data = [...fields];
+        data.splice(idx, 1);
+        setFields(data);
+    };
+
+    const handleAddField = () => {
+        setFields([
+            ...fields,
+            {
+                name: "",
+                type: { value: "STRING", label: "String" },
+                required: { value: false, label: "False" },
+                unique: { value: false, label: "False" }
+            }
+        ]);
+    };
+
+    return {
+        handleTableSubmit,
+        fields,
+        handleAddField,
+        handleDeleteField,
+        handleChange,
+        tableName,
+        setTableName
+    };
 };
 
 export default useCreateTableForm;
