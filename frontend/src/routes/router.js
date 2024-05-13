@@ -10,13 +10,15 @@ import Profile from "../pages/Profile";
 import Auth from "../pages/Auth";
 
 import Root from "../layout/LayoutRoot";
+import CreateTable from "../pages/CreateTable";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
         <>
             <Route path="/" element={<Root />}>
                 <Route index element={<Home />} />
-                <Route path="profile" element={<Profile />} />
+                <Route path="/create-table" element={<CreateTable />} />
+                <Route path="/profile" element={<Profile />} />
             </Route>
             <Route path="auth/:purpose" element={<Auth />} />
         </>

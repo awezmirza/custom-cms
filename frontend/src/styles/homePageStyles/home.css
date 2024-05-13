@@ -83,3 +83,16 @@
         background: #252525;
     }
 }
+
+.g-ico {
+    font-size: 54px;
+}
+
+.add-tbl {
+    text-decoration: none;
+    margin-top: 20px;
+
+    &:hover {
+        background: #303030;
+    }
+}

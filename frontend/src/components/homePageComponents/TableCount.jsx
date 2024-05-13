@@ -5,6 +5,7 @@ const TableCount = () => {
     const { userProfileDetails, userDataLoading } = useSelector(
         (state) => state.userDataSlice
     );
+
     return (
         <div className="table-count-container">
             <h1 className="label">Total Tables:</h1>

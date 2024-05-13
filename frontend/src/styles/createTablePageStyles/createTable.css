@@ -1,0 +1,12 @@
+.create-table-container {
+    display: flex;
+    justify-content: center;
+    width: 80vw;
+    margin: auto;
+    height: 90vh;
+}
+
+.create-table-form-container {
+    width: 100%;
+    padding: 10px 50px;
+}

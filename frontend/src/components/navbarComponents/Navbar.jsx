@@ -23,9 +23,11 @@ const Navbar = () => {
                         <span className="material-symbols-rounded">home</span>
                         <div className="nav-label">Home</div>
                     </NavLink>
-                    <NavLink className="navbar-link" to="/reels">
-                        <span className="material-symbols-rounded">movie</span>
-                        <div className="nav-label">Reels</div>
+                    <NavLink className="navbar-link" to="/create-table">
+                        <span className="material-symbols-rounded">
+                            add_circle
+                        </span>
+                        <div className="nav-label">Create Table</div>
                     </NavLink>
                     <NavLink className="navbar-link" to="/explore">
                         <span className="material-symbols-rounded">public</span>

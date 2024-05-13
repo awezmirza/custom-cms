@@ -44,9 +44,9 @@ const LayoutRoot = () => {
     return (
         <>
             <Navbar />
-            <div>
+            <>
                 <Outlet />
-            </div>
+            </>
         </>
     );
 };
