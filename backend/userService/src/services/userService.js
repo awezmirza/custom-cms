@@ -6,6 +6,7 @@ import {
     compareBcryptHash,
     hashUsingBcrypt
 } from "../utils/index.js";
+import { v4 as uuidv4 } from 'uuid';
 
 class UserService {
     constructor() {
@@ -107,6 +108,17 @@ class UserService {
             throw new customError(400, "No user found");
         }
         return user;
+    }
+
+    async addTable(userId, tableName) {
+        // create a unique table id 
+        const tableId = uuidv4();
+        const tableData = { tableName, tableId };
+
+        // Send data to repository
+        const data = await this.userRepository.addTable(userId, tableData);
+        // Return the tableId
+        return tableId;
     }
 }
 

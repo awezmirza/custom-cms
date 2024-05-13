@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { TABLES_SERVICE_URL } from "../../utils/constant";
+import axios from "axios";
+import { useSelector } from "react-redux";
 // import {
 //     isValidPassword,
 //     isValidEmail
@@ -15,6 +18,10 @@ const useCreateTableForm = () => {
     // const navigate = useNavigate();
     // const dispatch = useDispatch();
 
+    const { accessToken } = useSelector(
+        (state) => state.userDataSlice
+    );
+
     const [tableName, setTableName] = useState("");
     const [fields, setFields] = useState([
         {
@@ -28,35 +35,40 @@ const useCreateTableForm = () => {
     const handleTableSubmit = async (event) => {
         try {
             event.preventDefault();
-
+            // Validation
+            if (!tableName) {
+                return toast.error(
+                    "Table Name is required");
+            }
+            if (!fields || fields.length === 0) {
+                return toast.error(
+                    "At least one field is required");
+            }
             for (let i = 0; i < fields.length; i++) {
                 const field = fields[i];
                 if (!field.name) {
-                    toast.error(
+                    return toast.error(
                         "Field name is required at Field Number " + (i + 1)
                     );
-                    break;
                 }
             }
-            // })
-            // console.log(tableName);
-            // if (!isValidEmail(inputs.email)) {
-            //     return toast.error("Email is not valid");
-            // }
-            // const passwordErr = isValidPassword(inputs.password);
-            // if (passwordErr) {
-            //     return toast.error(passwordErr);
-            // }
 
-            // const res = await toast.promise(
-            //     axios.post(USER_SERVICE_URL + "/login", {
-            //         email: inputs.email,
-            //         password: inputs.password
-            //     }),
-            //     {
-            //         pending: "Logging In..."
-            //     }
-            // );
+            const formData = { tableName, fields };
+
+            const res = await toast.promise(
+                axios.post(TABLES_SERVICE_URL + "/create-table", {
+                    formData
+                },
+                    {
+                        headers: {
+                            "access-token": accessToken
+                        }
+                    }
+                ),
+                {
+                    pending: "Logging In..."
+                }
+            );
 
             // if (!res?.data?.data["access-token"]) {
             //     throw new Error("Something went wrong at server side");
@@ -70,8 +82,8 @@ const useCreateTableForm = () => {
         } catch (error) {
             toast.error(
                 error?.response?.data?.message ||
-                    error?.message ||
-                    "Something went wrong"
+                error?.message ||
+                "Something went wrong"
             );
         }
     };
