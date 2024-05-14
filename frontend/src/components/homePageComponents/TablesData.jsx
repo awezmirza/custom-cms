@@ -12,7 +12,7 @@ const TablesData = () => {
                 {userProfileDetails?.tables.map((singleTableData) => {
                     return (
                         <TableNameCapsule
-                            key={singleTableData._id}
+                            key={singleTableData.tableId}
                             data={singleTableData}
                         />
                     );

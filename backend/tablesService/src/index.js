@@ -5,7 +5,6 @@ import cors from "cors";
 // import initializeDatabase from "./sequelize/initializeDatabase.js";
 // import generateModelColumns from "./utils/generateModelColumns.js";
 // import createModel from "./sequelize/createModel.js";
-// import User from "./models/test.js";
 
 const app = express();
 
@@ -29,7 +28,8 @@ const server = app.listen(PORT, async () => {
     //     { name: "Title", type: "String", allowNull: false },
     //     { name: "Publish Date", type: "Int", allowNull: true },
     // ]);
-    // const table = createModel("Teasts", test);
+    // console.log(test);
+    // const table = createModel("Teeeeasts", test);
 
     // async function createTable() {
     //     try {

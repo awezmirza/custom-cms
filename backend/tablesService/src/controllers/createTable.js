@@ -1,9 +1,10 @@
+import axios from "axios";
+import { USER_SERVICE_URL } from "../config/index.js";
 import { customError } from "../errors/errorUtils/index.js";
+import TableService from "../service/tableService.js";
 
 const createTable = async (req, res) => {
-    // Get the received table id
-    // Create table with the received table Id and fields
-    
+
     // Validate Inputs
     const accessToken = req.headers["access-token"];
     if (!accessToken) {
@@ -22,13 +23,32 @@ const createTable = async (req, res) => {
             throw new customError(400, "Field name can't be empty");
         }
     }
-    
-    // Send add table request with access token and table name to user service
-    
 
+    // Send add table request with access token and table name to user service
+    let tableId;
+    try {
+        const responseForTableID = await axios.patch(USER_SERVICE_URL + "/add-table", {
+            tableName: data.tableName
+        },
+            {
+                headers: {
+                    "access-token": accessToken
+                }
+            }
+        )
+        // Get the received table id
+        tableId = responseForTableID.data.data.tableId;
+    } catch (error) {
+        throw new customError(error.response.status || 400, error.response.data.message || "Something went wrong");
+    }
+
+    // Create table with the received table Id and fields
+    const tableService = new TableService();
+    await tableService.createTable(tableId, data.fields);
 
     return res.status(201).json({
         message: "Table Created Successfully",
+        data: { tableId },
         success: true
     });
 }

@@ -2,21 +2,13 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { TABLES_SERVICE_URL } from "../../utils/constant";
 import axios from "axios";
-import { useSelector } from "react-redux";
-// import {
-//     isValidPassword,
-//     isValidEmail
-// } from "../../authFunctionsAndHooks/validators/validatorIndex.js";
-// import axios from "axios";
-// import { USER_SERVICE_URL } from "../../constant.js";
-// import handleAccessToken from "../../handleAccessToken.js";
-// import { useNavigate } from "react-router-dom";
-// import { useDispatch } from "react-redux";
-// import { updateUserAccessToken } from "../../../config/userDataSlice.js";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUserData } from "../../config/userDataSlice";
+import { useNavigate } from "react-router-dom";
 
 const useCreateTableForm = () => {
-    // const navigate = useNavigate();
-    // const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const { accessToken } = useSelector(
         (state) => state.userDataSlice
@@ -44,6 +36,9 @@ const useCreateTableForm = () => {
                 return toast.error(
                     "At least one field is required");
             }
+
+            let requestFields = [];
+
             for (let i = 0; i < fields.length; i++) {
                 const field = fields[i];
                 if (!field.name) {
@@ -51,9 +46,15 @@ const useCreateTableForm = () => {
                         "Field name is required at Field Number " + (i + 1)
                     );
                 }
+                requestFields.push({
+                    name: field.name,
+                    required: field.required.value,
+                    type: field.type.value,
+                    unique: field.unique.value,
+                })
             }
 
-            const formData = { tableName, fields };
+            const formData = { tableName, fields: requestFields };
 
             const res = await toast.promise(
                 axios.post(TABLES_SERVICE_URL + "/create-table", {
@@ -66,19 +67,13 @@ const useCreateTableForm = () => {
                     }
                 ),
                 {
-                    pending: "Logging In..."
+                    pending: "Creating table..."
                 }
             );
 
-            // if (!res?.data?.data["access-token"]) {
-            //     throw new Error("Something went wrong at server side");
-            // }
-
-            // handleAccessToken(res.data.data["access-token"]);
-            // dispatch(updateUserAccessToken(res.data.data["access-token"]));
-
-            // toast.success("Logged in successfully");
-            // navigate("/");
+            toast.success(res.data.message || "Table created successfully");
+            dispatch(fetchUserData());
+            navigate("/table/" + res.data.data.tableId);
         } catch (error) {
             toast.error(
                 error?.response?.data?.message ||

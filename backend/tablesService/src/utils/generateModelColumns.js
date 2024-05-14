@@ -5,10 +5,10 @@ import { DataTypes } from "sequelize";
 const generateModelColumns = (inputArray) => {
 
     const dataTypeMap = {
-        "String": DataTypes.STRING,
-        "Int": DataTypes.INTEGER,
-        "Bool": DataTypes.BOOLEAN,
-        "Date": DataTypes.DATE,
+        "STRING": DataTypes.STRING,
+        "INTEGER": DataTypes.INTEGER,
+        "BOOLEAN": DataTypes.BOOLEAN,
+        "DATE": DataTypes.DATE,
     }
 
     const modelColumns = {};
@@ -22,6 +22,7 @@ const generateModelColumns = (inputArray) => {
             unique: input?.unique || false
         }
     });
+
     return modelColumns;
 }
 

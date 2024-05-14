@@ -1,4 +1,4 @@
-import generateModelColumns from "./generateModelColumns";
+import generateModelColumns from "./generateModelColumns.js";
 
 export {
     generateModelColumns

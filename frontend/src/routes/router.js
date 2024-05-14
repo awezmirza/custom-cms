@@ -11,6 +11,7 @@ import Auth from "../pages/Auth";
 
 import Root from "../layout/LayoutRoot";
 import CreateTable from "../pages/CreateTable";
+import Table from "../pages/Table";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -19,6 +20,7 @@ const router = createBrowserRouter(
                 <Route index element={<Home />} />
                 <Route path="/create-table" element={<CreateTable />} />
                 <Route path="/profile" element={<Profile />} />
+                <Route path="/table/:tableId" element={<Table />} />
             </Route>
             <Route path="auth/:purpose" element={<Auth />} />
         </>
