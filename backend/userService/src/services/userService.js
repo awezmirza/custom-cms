@@ -135,6 +135,10 @@ class UserService {
         }
         throw new customError(400, "No table found");
     }
+
+    async editTableName(userId, tableId, newTableName) {
+        await this.userRepository.editTableName(userId, tableId, newTableName);
+    }
 }
 
 export default UserService;

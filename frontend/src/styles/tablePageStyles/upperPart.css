@@ -1,10 +1,13 @@
 .upper-part-container {
-    /* background: red; */
+    background: #1e1f20;
     display: flex;
     justify-content: space-between;
+    border-radius: 20px;
+    padding-inline: 30px;
 }
 
-.upper-part-left-part {
+.upper-part-left-part,
+.upper-part-right-part {
     display: flex;
     align-items: center;
 }
@@ -15,4 +18,80 @@
     background: #000;
     padding-inline: 10px;
     border-radius: 10px;
+}
+
+.table-name {
+    display: flex;
+    align-items: center;
+    height: 80%;
+    border: 1px dashed white;
+    padding-inline: 30px;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 200px;
+    overflow: hidden;
+
+    &:hover {
+        background: #00000050;
+    }
+}
+
+.edit-table-input-box {
+    display: flex;
+    align-items: center;
+    height: 80%;
+    font-size: 2em;
+    border: 1px dashed white;
+    padding-inline: 30px;
+    border-radius: 20px;
+    cursor: text;
+    width: 200px;
+    background: #00000050;
+}
+
+.edit-table-btns {
+    all: unset;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 50%;
+    border: 1px solid white;
+}
+
+.table-name-shimmer-width {
+    width: 200px;
+    height: 48px;
+    border-radius: 10px;
+}
+
+.table-nav-btn {
+    all: unset;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-inline: 10px;
+    padding: 10px;
+    border-radius: 50%;
+    border: 1px solid white;
+}
+
+.table-nav-dlt-btn,
+.edit-close-btn {
+    &:hover {
+        background: rgb(122, 0, 0);
+    }
+}
+
+.table-nav-code-btn,
+.edit-save-btn {
+    &:hover {
+        background: rgb(29, 7, 138);
+    }
+}
+
+.table-name-edit-tip {
+    font-weight: 400;
+    margin-left: 40px;
 }

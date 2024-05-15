@@ -10,6 +10,7 @@ import getMyDetails from "./userControllers/getMyDetails.js";
 
 import addTable from "./tableControllers/addTable.js";
 import getTableNameById from "./tableControllers/getTableNameById.js";
+import editTableName from "./tableControllers/editTableName.js";
 
 export {
     signup,
@@ -22,5 +23,6 @@ export {
     submitOtp,
     getMyDetails,
     addTable,
-    getTableNameById
+    getTableNameById,
+    editTableName
 };

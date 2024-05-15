@@ -1,4 +1,5 @@
 import "../../styles/tablePageStyles/upperPart.css";
+import TableButtonsContainer from "./TableButtonsContainer";
 import TableIdContainer from "./TableIdContainer";
 import TableNameContainer from "./TableNameContainer";
 const UpperPart = () => {
@@ -8,7 +9,9 @@ const UpperPart = () => {
                 <TableNameContainer />
                 <TableIdContainer />
             </div>
-            <div className="upper-part-right-part">Right</div>
+            <div className="upper-part-right-part">
+                <TableButtonsContainer />
+            </div>
         </div>
     );
 };

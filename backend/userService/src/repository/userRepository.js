@@ -37,6 +37,22 @@ class UserRepository {
         })
         await user.save();
     }
+
+    async editTableName(userId, tableId, newTableName) {
+        const userData = await this.getOneByData({ _id: userId }, "");
+        let found = 0;
+        for (let i = 0; i < userData.tables.length; i++) {
+            if (userData.tables[i].tableId === tableId) {
+                userData.tables[i].tableName = newTableName;
+                found = 1;
+                break;
+            }
+        }
+        if (found == 0) {
+            throw new customError(400, "No table found");
+        }
+        await userData.save();
+    }
 }
 
 export default UserRepository;
