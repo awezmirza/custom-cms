@@ -18,7 +18,7 @@ const generateModelColumns = (inputArray) => {
 
         modelColumns[name] = {
             type: dataTypeMap[input?.type] || DataTypes.STRING,
-            allowNull: input?.allowNull || false,
+            allowNull: (!input?.required) || false,
             unique: input?.unique || false
         }
     });

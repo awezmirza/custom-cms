@@ -1,9 +1,7 @@
 import UserService from "../../services/userService.js";
 import { customError } from "../../errors/errorUtils/index.js";
-import { v4 as uuidv4 } from 'uuid';
 
 const addTable = async (req, res) => {
-
 
     // Verify access token
     const accessToken = req.headers["access-token"];

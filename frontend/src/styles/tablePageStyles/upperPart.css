@@ -1,0 +1,18 @@
+.upper-part-container {
+    /* background: red; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.upper-part-left-part {
+    display: flex;
+    align-items: center;
+}
+
+.table-id {
+    margin-left: 10px;
+    font-weight: 400;
+    background: #000;
+    padding-inline: 10px;
+    border-radius: 10px;
+}

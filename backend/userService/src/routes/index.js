@@ -5,7 +5,8 @@ import {
     signup,
     noRouteController,
     getMyDetails,
-    addTable
+    addTable,
+    getTableNameById
 } from "../controllers/index.js";
 import { errorMiddleware } from "../errors/errorMiddlewares/index.js";
 import { asyncErrorHandler } from "../errors/errorUtils/index.js";
@@ -24,6 +25,7 @@ router.get("/verify-token", verifyToken);
 router.get("/get-my-details", asyncErrorHandler(getMyDetails));
 
 router.patch("/add-table", asyncErrorHandler(addTable));
+router.get("/get-table-name/:tableId", asyncErrorHandler(getTableNameById));
 
 router.use("/google-web-login", googleWebLoginRouter);
 router.use("/reset-password", resetPasswordRouter);

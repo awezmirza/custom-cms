@@ -101,7 +101,7 @@ class UserService {
 
     async getUserDetails(
         data,
-        fields = "name location _id username totalFriends isPublic"
+        fields = "_id"
     ) {
         const user = await this.userRepository.getOneByData(data, fields);
         if (!user) {
@@ -112,13 +112,28 @@ class UserService {
 
     async addTable(userId, tableName) {
         // create a unique table id 
-        const tableId = uuidv4();
+        const initialTableId = "table_" + uuidv4();
+        const tableId = initialTableId.replaceAll("-", "_");
         const tableData = { tableName, tableId };
 
         // Send data to repository
         const data = await this.userRepository.addTable(userId, tableData);
         // Return the tableId
         return tableId;
+    }
+
+    async getTableNameById(userId, tableId) {
+
+        const userData = await this.getUserDetails({ _id: userId }, "tables");
+
+        const tableData = userData.tables;
+
+        for (let i = 0; i < tableData.length; i++) {
+            if (tableData[i].tableId === tableId) {
+                return tableData[i].tableName;
+            }
+        }
+        throw new customError(400, "No table found");
     }
 }
 

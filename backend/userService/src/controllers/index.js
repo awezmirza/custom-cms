@@ -9,6 +9,7 @@ import submitOtp from "./resetPasswordControllers/submitOtp.js";
 import getMyDetails from "./userControllers/getMyDetails.js";
 
 import addTable from "./tableControllers/addTable.js";
+import getTableNameById from "./tableControllers/getTableNameById.js";
 
 export {
     signup,
@@ -20,5 +21,6 @@ export {
     resendOtp,
     submitOtp,
     getMyDetails,
-    addTable
+    addTable,
+    getTableNameById
 };

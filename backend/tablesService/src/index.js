@@ -23,14 +23,6 @@ const server = app.listen(PORT, async () => {
     initializeServer();
     console.log("Listening on port: ", PORT);
 
-    // const test = generateModelColumns([
-    //     { name: "Index", type: "String", allowNull: false },
-    //     { name: "Title", type: "String", allowNull: false },
-    //     { name: "Publish Date", type: "Int", allowNull: true },
-    // ]);
-    // console.log(test);
-    // const table = createModel("Teeeeasts", test);
-
     // async function createTable() {
     //     try {
     //         const newBook = await table.create({

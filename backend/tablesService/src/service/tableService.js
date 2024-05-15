@@ -11,6 +11,11 @@ class TableService {
         const modelColumns = generateModelColumns(fields);
         await this.tableRepository.createTable(tableId, modelColumns);
     }
+
+    async viewTable(tableId) {
+        const tableData = await this.tableRepository.viewTable(tableId);
+        return tableData;
+    }
 }
 
 export default TableService;

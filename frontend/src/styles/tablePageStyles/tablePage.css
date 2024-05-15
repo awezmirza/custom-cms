@@ -1,0 +1,16 @@
+.table-page-container {
+    display: flex;
+    justify-content: center;
+    width: 80vw;
+    margin: auto;
+    height: 95vh;
+    /* background: blue; */
+}
+
+.table-container {
+    width: 100%;
+}
+
+.table-name {
+    margin-left: 20px;
+}
