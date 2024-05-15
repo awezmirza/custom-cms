@@ -1,11 +1,9 @@
-import React from "react";
+import DeleteTableButton from "./DeleteTableButton";
 
 const TableButtonsContainer = () => {
     return (
         <>
-            <button className="table-nav-btn table-nav-dlt-btn" type="button">
-                <span className="material-symbols-rounded">delete</span>
-            </button>
+            <DeleteTableButton />
             <button className="table-nav-btn table-nav-code-btn" type="button">
                 <span className="material-symbols-rounded">code</span>
             </button>

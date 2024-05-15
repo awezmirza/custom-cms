@@ -11,6 +11,7 @@ import getMyDetails from "./userControllers/getMyDetails.js";
 import addTable from "./tableControllers/addTable.js";
 import getTableNameById from "./tableControllers/getTableNameById.js";
 import editTableName from "./tableControllers/editTableName.js";
+import deleteTable from "./tableControllers/deleteTable.js";
 
 export {
     signup,
@@ -24,5 +25,6 @@ export {
     getMyDetails,
     addTable,
     getTableNameById,
-    editTableName
+    editTableName,
+    deleteTable
 };

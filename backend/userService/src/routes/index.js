@@ -7,7 +7,8 @@ import {
     getMyDetails,
     addTable,
     getTableNameById,
-    editTableName
+    editTableName,
+    deleteTable
 } from "../controllers/index.js";
 import { errorMiddleware } from "../errors/errorMiddlewares/index.js";
 import { asyncErrorHandler } from "../errors/errorUtils/index.js";
@@ -28,6 +29,7 @@ router.get("/get-my-details", asyncErrorHandler(getMyDetails));
 router.patch("/add-table", asyncErrorHandler(addTable));
 router.get("/get-table-name/:tableId", asyncErrorHandler(getTableNameById));
 router.patch("/edit-table-name/:tableId", asyncErrorHandler(editTableName));
+router.delete("/delete-table/:tableId", asyncErrorHandler(deleteTable));
 
 router.use("/google-web-login", googleWebLoginRouter);
 router.use("/reset-password", resetPasswordRouter);

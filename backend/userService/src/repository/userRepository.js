@@ -39,7 +39,10 @@ class UserRepository {
     }
 
     async editTableName(userId, tableId, newTableName) {
-        const userData = await this.getOneByData({ _id: userId }, "");
+        const userData = await this.getOneByData({ _id: userId });
+        if (!userData) {
+            throw new customError(400, "No user found");
+        }
         let found = 0;
         for (let i = 0; i < userData.tables.length; i++) {
             if (userData.tables[i].tableId === tableId) {
@@ -49,6 +52,19 @@ class UserRepository {
             }
         }
         if (found == 0) {
+            throw new customError(400, "No table found");
+        }
+        await userData.save();
+    }
+
+    async deleteTable(userId, tableId) {
+        const userData = await this.getOneByData({ _id: userId });
+        if (!userData) {
+            throw new customError(400, "No user found");
+        }
+        const previousTablesLength = userData.tables.length;
+        userData.tables = userData.tables.filter(table => table.tableId !== tableId);
+        if (userData.tables.length === previousTablesLength) {
             throw new customError(400, "No table found");
         }
         await userData.save();

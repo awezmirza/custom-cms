@@ -139,6 +139,9 @@ class UserService {
     async editTableName(userId, tableId, newTableName) {
         await this.userRepository.editTableName(userId, tableId, newTableName);
     }
+    async deleteTable(userId, tableId) {
+        await this.userRepository.deleteTable(userId, tableId);
+    }
 }
 
 export default UserService;

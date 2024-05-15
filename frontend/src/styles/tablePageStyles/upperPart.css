@@ -24,7 +24,8 @@
     display: flex;
     align-items: center;
     height: 80%;
-    border: 1px dashed white;
+    border: 1px dashed rgb(118, 118, 118);
+    ;
     padding-inline: 30px;
     border-radius: 20px;
     cursor: pointer;
@@ -41,7 +42,8 @@
     align-items: center;
     height: 80%;
     font-size: 2em;
-    border: 1px dashed white;
+    border: 1px dashed rgb(118, 118, 118);
+    ;
     padding-inline: 30px;
     border-radius: 20px;
     cursor: text;
@@ -57,7 +59,8 @@
     margin-left: 10px;
     padding: 5px;
     border-radius: 50%;
-    border: 1px solid white;
+    border: 1px solid rgb(118, 118, 118);
+    ;
 }
 
 .table-name-shimmer-width {
@@ -74,7 +77,8 @@
     margin-inline: 10px;
     padding: 10px;
     border-radius: 50%;
-    border: 1px solid white;
+    border: 1px solid rgb(118, 118, 118);
+    ;
 }
 
 .table-nav-dlt-btn,
@@ -94,4 +98,82 @@
 .table-name-edit-tip {
     font-weight: 400;
     margin-left: 40px;
+}
+
+.dlt-tbl-btn-container {
+    position: relative;
+}
+
+.dlt-confirmation-popup {
+    position: absolute;
+    height: 200px;
+    width: 300px;
+    top: 0;
+    right: 0;
+    background: #141313;
+    border: 1px solid rgb(118, 118, 118);
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.popup-upper {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 10px;
+
+    & span {
+        padding: 5px;
+        border-radius: 50%;
+        border: 1px solid rgb(118, 118, 118);
+        cursor: pointer;
+        font-weight: 200;
+
+        &:hover {
+            background: #005a01;
+        }
+    }
+}
+
+.popup-lower {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    & h4 {
+        font-weight: 300;
+    }
+
+    & h5 {
+        font-weight: 300;
+    }
+
+    & span {
+        background: #000;
+        border: 1px solid rgb(171, 9, 9);
+        padding-inline: 9px;
+        border-radius: 15px;
+    }
+}
+
+.delete-input {
+    all: unset;
+    margin-block: 10px;
+    width: 60%;
+    background: #000;
+    border: 1px solid rgb(171, 9, 9);
+    border-radius: 15px;
+    padding: 5px 10px;
+}
+
+.confirm-dlt-btn {
+    all: unset;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 15px;
+    border: 1px solid rgb(171, 9, 9);
+
+    &:hover {
+        background: rgb(171, 9, 9);
+    }
 }

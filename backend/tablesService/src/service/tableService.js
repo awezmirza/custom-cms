@@ -16,6 +16,10 @@ class TableService {
         const tableData = await this.tableRepository.viewTable(tableId);
         return tableData;
     }
+
+    async deleteTable(tableId) {
+        await this.tableRepository.deleteTable(tableId);
+    }
 }
 
 export default TableService;

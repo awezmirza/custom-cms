@@ -41,9 +41,9 @@ const TableNameContainer = () => {
     }, [tableId]);
 
     const changeTableName = async () => {
-        if (edittedTableName == "") {
+        if (edittedTableName === "") {
             toast.error("Table name can't be empty");
-        } else if (edittedTableName != tableName && edittedTableName) {
+        } else if (edittedTableName !== tableName && edittedTableName) {
             try {
                 await toast.promise(
                     axios.patch(

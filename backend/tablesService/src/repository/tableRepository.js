@@ -18,6 +18,10 @@ class TableRepository {
         // console.log(tableData);
         return { tableColumns, tableData };
     }
+
+    async deleteTable(tableId) {
+        await sequelize.query(`DROP TABLE IF EXISTS ${tableId};`);
+    }
 }
 
 export default TableRepository;
