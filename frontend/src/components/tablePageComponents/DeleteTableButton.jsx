@@ -1,6 +1,10 @@
+import axios from "axios";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import { TABLES_SERVICE_URL } from "../../utils/constant";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUserData } from "../../config/userDataSlice";
 
 const DeleteTableButton = () => {
     const { tableId } = useParams();
@@ -9,9 +13,32 @@ const DeleteTableButton = () => {
 
     const [dltInputText, setDltInputText] = useState("");
 
-    const handleDeleteButtonClick = () => {
+    const { accessToken } = useSelector((state) => state.userDataSlice);
+
+    const navigate = useNavigate();
+
+    const dispatch = useDispatch();
+
+    const handleDeleteButtonClick = async () => {
         if (dltInputText !== "delete") {
             return toast.error("Wrong input");
+        }
+        try {
+            await toast.promise(
+                axios.delete(TABLES_SERVICE_URL + "/delete-table/" + tableId, {
+                    headers: {
+                        "access-token": accessToken
+                    }
+                }),
+                {
+                    pending: "Deleting table..."
+                }
+            );
+            toast.success("Table deleted successfully");
+            dispatch(fetchUserData());
+            navigate("/");
+        } catch (error) {
+            toast.error(error.response.data.message || "Something went wrong");
         }
     };
     return (
