@@ -12,6 +12,7 @@ import addTable from "./tableControllers/addTable.js";
 import getTableNameById from "./tableControllers/getTableNameById.js";
 import editTableName from "./tableControllers/editTableName.js";
 import deleteTable from "./tableControllers/deleteTable.js";
+import verifyTableOwnership from "./tableControllers/verifyTableOwnership.js";
 
 export {
     signup,
@@ -26,5 +27,6 @@ export {
     addTable,
     getTableNameById,
     editTableName,
-    deleteTable
+    deleteTable,
+    verifyTableOwnership
 };

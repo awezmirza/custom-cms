@@ -3,14 +3,21 @@
 // import { customError } from "../errors/errorUtils/index.js";
 // import TableService from "../service/tableService.js";
 
+import customError from "../errors/errorUtils/customError.js";
 import TableService from "../service/tableService.js";
 
 const viewTable = async (req, res) => {
 
-    // Get access token or API key 
-    // Get Table Id 
+    // Get access token
+    const accessToken = req.headers["access-token"];
+    if (!accessToken) {
+        throw new customError(401, "User not logged in");
+    }
+
+    // Get Table Id
     const { tableId } = req.params;
-    // Send the data to user service to verify token and api key and table ownership 
+
+    // Send the data to user service to verify token and table ownership 
 
 
     // Validate Inputs
