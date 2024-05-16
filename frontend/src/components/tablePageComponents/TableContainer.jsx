@@ -1,6 +1,6 @@
 import React from "react";
-import UpperPart from "./UpperPart";
-import LowerPart from "./LowerPart";
+import UpperPart from "./upperPart/UpperPart";
+import LowerPart from "./lowerPart/LowerPart";
 
 const TableContainer = () => {
     return (

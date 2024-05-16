@@ -2,9 +2,9 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import { TABLES_SERVICE_URL } from "../../utils/constant";
+import { TABLES_SERVICE_URL } from "../../../utils/constant";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUserData } from "../../config/userDataSlice";
+import { fetchUserData } from "../../../config/userDataSlice";
 
 const DeleteTableButton = () => {
     const { tableId } = useParams();

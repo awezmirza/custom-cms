@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Shimmer from "../Shimmer";
+import Shimmer from "../../Shimmer";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { USER_SERVICE_URL } from "../../utils/constant";
+import { USER_SERVICE_URL } from "../../../utils/constant";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 

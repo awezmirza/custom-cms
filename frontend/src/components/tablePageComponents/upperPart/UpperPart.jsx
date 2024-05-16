@@ -1,4 +1,4 @@
-import "../../styles/tablePageStyles/upperPart.css";
+import "../../../styles/tablePageStyles/upperPart.css";
 import TableButtonsContainer from "./TableButtonsContainer";
 import TableIdContainer from "./TableIdContainer";
 import TableNameContainer from "./TableNameContainer";

@@ -1,0 +1,17 @@
+.table-page-lower-part-container {
+    width: 100%;
+    border-radius: 25px;
+    overflow: hidden;
+    background: #1e1f20;
+}
+
+.table-page-lower-part-shimmer {
+    height: 100%;
+    width: 100%;
+}
+
+.table-data-error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

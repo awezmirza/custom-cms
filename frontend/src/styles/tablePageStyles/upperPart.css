@@ -4,6 +4,7 @@
     justify-content: space-between;
     border-radius: 20px;
     padding-inline: 30px;
+    height: 56px;
 }
 
 .upper-part-left-part,
@@ -25,7 +26,6 @@
     align-items: center;
     height: 80%;
     border: 1px dashed rgb(118, 118, 118);
-    ;
     padding-inline: 30px;
     border-radius: 20px;
     cursor: pointer;
@@ -43,7 +43,6 @@
     height: 80%;
     font-size: 2em;
     border: 1px dashed rgb(118, 118, 118);
-    ;
     padding-inline: 30px;
     border-radius: 20px;
     cursor: text;
@@ -60,13 +59,12 @@
     padding: 5px;
     border-radius: 50%;
     border: 1px solid rgb(118, 118, 118);
-    ;
 }
 
 .table-name-shimmer-width {
-    width: 200px;
-    height: 48px;
-    border-radius: 10px;
+    width: 261px;
+    height: 80%;
+    border-radius: 20px;
 }
 
 .table-nav-btn {
@@ -78,7 +76,6 @@
     padding: 10px;
     border-radius: 50%;
     border: 1px solid rgb(118, 118, 118);
-    ;
 }
 
 .table-nav-dlt-btn,

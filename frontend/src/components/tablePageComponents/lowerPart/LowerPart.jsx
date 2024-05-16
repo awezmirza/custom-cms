@@ -1,20 +1,20 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { fetchTableData } from "../../utils/fetchTableData";
+import { fetchTableData } from "../../../utils/fetchTableData";
 import {
     fetchDataFailure,
     fetchDataStart,
     fetchDataSuccess
-} from "../../config/tableDataSlice";
+} from "../../../config/tableDataSlice";
+import "../../../styles/tablePageStyles/lowerPart.css";
+import TableDataContainer from "./TableDataContainer";
 
 const LowerPart = () => {
     const dispatch = useDispatch();
     const { tableId } = useParams();
     const { accessToken } = useSelector((state) => state.userDataSlice);
-    // const { tableData, loading, error } = useSelector(
-    //     (state) => state.tableDataSlice
-    // );
+
     useEffect(() => {
         const fetchData = async () => {
             dispatch(fetchDataStart());
@@ -28,7 +28,7 @@ const LowerPart = () => {
 
         fetchData();
     }, [tableId]);
-    return <div className="table-page-lower-part-container">LowerPart</div>;
+    return <TableDataContainer />;
 };
 
 export default LowerPart;
