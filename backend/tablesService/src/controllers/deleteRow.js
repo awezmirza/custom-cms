@@ -1,20 +1,23 @@
 import axios from "axios";
 import { USER_SERVICE_URL } from "../config/index.js";
-import customError from "../errors/errorUtils/customError.js";
+import { customError } from "../errors/errorUtils/index.js";
 import TableService from "../service/tableService.js";
 
-const viewTable = async (req, res) => {
-
-    // Get access token
+const deleteRow = async (req, res) => {
+    // Validate Inputs
     const accessToken = req.headers["access-token"];
     if (!accessToken) {
         throw new customError(401, "User not logged in");
     }
+    const tableId = req.params.tableId;
 
-    // Get Table Id
-    const { tableId } = req.params;
+    // Take the row Id
+    const rowId = req.body.rowId;
+    if (!rowId) {
+        throw new customError(400, "Row id is required");
+    }
 
-    // Send the data to user service to verify token and table ownership 
+    // Verify Table Ownership
     try {
         await axios.get(USER_SERVICE_URL + "/verify-table-ownership/" + tableId,
             {
@@ -27,15 +30,14 @@ const viewTable = async (req, res) => {
         throw new customError(error.response.status || 400, error.response.data.message || "Something went wrong");
     }
 
-    // Get the table
+    // Delete row from table
     const tableService = new TableService();
-    const data = await tableService.viewTable(tableId);
+    await tableService.deleteRow(tableId, rowId);
 
     return res.status(201).json({
-        message: "Table Fetched Successfully",
-        data,
+        message: "Row Deleted Successfully",
         success: true
     });
 }
 
-export default viewTable;
+export default deleteRow;

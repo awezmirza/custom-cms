@@ -28,7 +28,11 @@ const LowerPart = () => {
 
         fetchData();
     }, [tableId]);
-    return <TableDataContainer />;
+    return (
+        <div className="lower-part-container">
+            <TableDataContainer />
+        </div>
+    );
 };
 
 export default LowerPart;

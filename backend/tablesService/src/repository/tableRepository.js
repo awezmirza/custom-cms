@@ -12,15 +12,19 @@ class TableRepository {
 
     async viewTable(tableId) {
         const [tableColumns] = await sequelize.query(`SELECT COLUMN_NAME, DATA_TYPE, IS_NULLABLE, COLUMN_KEY FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '${tableId}' AND COLUMN_NAME NOT IN ('createdAt', 'updatedAt')`);
-        // await sequelize.query("insert into table_c20bdf5b_9a47_484b_af1d_2c6b2bce2158(afifa, Awez_Mirza, saad) Values ('ok', 'hi', true)");
         const [tableData] = await sequelize.query(`SELECT * FROM ${tableId}`);
-        // console.log(tableColumns);
-        // console.log(tableData);
         return { tableColumns, tableData };
     }
 
     async deleteTable(tableId) {
         await sequelize.query(`DROP TABLE IF EXISTS ${tableId};`);
+    }
+
+    async deleteRow(tableId, rowId) {
+        await sequelize.query(
+            `DELETE FROM ${tableId}
+                WHERE id = ${rowId};`
+        );
     }
 }
 

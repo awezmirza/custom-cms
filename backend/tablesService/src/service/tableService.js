@@ -20,6 +20,10 @@ class TableService {
     async deleteTable(tableId) {
         await this.tableRepository.deleteTable(tableId);
     }
+
+    async deleteRow(tableId, rowId) {
+        await this.tableRepository.deleteRow(tableId, rowId);
+    }
 }
 
 export default TableService;
