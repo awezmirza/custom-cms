@@ -3,8 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
     tableData: null,
     tableColumnData: null,
-    loading: true,
-    error: null
+    tableDataLoading: true,
+    tableDataError: null
 };
 
 const tableDataSlice = createSlice({
@@ -12,17 +12,17 @@ const tableDataSlice = createSlice({
     initialState,
     reducers: {
         fetchDataStart(state) {
-            state.loading = true;
+            state.tableDataLoading = true;
         },
         fetchDataSuccess(state, action) {
-            state.loading = false;
+            state.tableDataLoading = false;
             state.tableData = action.payload.tableData;
             state.tableColumnData = action.payload.tableColumns;
-            state.error = null;
+            state.tableDataError = null;
         },
         fetchDataFailure(state, action) {
-            state.loading = false;
-            state.error = action.payload;
+            state.tableDataLoading = false;
+            state.tableDataError = action.payload;
         }
     }
 });
