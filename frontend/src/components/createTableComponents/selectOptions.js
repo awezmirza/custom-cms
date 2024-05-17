@@ -38,6 +38,7 @@ const selectStyles = {
               : "none"
     }),
     singleValue: (provided) => ({ ...provided, color: "white" }),
+    placeholder: (provided) => ({ ...provided, color: "rgb(182, 182, 182)" }),
     valueContainer: (provided) => ({ ...provided, paddingInline: "15px" })
 };
 

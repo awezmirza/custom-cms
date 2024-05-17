@@ -4,7 +4,6 @@ import { customError } from "../errors/errorUtils/index.js";
 import TableService from "../service/tableService.js";
 
 const deleteTable = async (req, res) => {
-
     // Validate Inputs
     const accessToken = req.headers["access-token"];
     if (!accessToken) {
@@ -19,7 +18,10 @@ const deleteTable = async (req, res) => {
             }
         });
     } catch (error) {
-        throw new customError(error?.response?.status || 400, error?.response?.data?.message || "Something went wrong");
+        throw new customError(
+            error?.response?.status || 400,
+            error?.response?.data?.message || "Something went wrong"
+        );
     }
 
     // Create table with the received table Id and fields
@@ -30,6 +32,6 @@ const deleteTable = async (req, res) => {
         message: "Table Deleted Successfully",
         success: true
     });
-}
+};
 
 export default deleteTable;

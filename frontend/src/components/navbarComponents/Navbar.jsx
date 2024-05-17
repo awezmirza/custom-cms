@@ -29,10 +29,6 @@ const Navbar = () => {
                         </span>
                         <div className="nav-label">Create Table</div>
                     </NavLink>
-                    <NavLink className="navbar-link" to="/explore">
-                        <span className="material-symbols-rounded">public</span>
-                        <div className="nav-label">Near me</div>
-                    </NavLink>
                     <UserProfileNavbarButton />
                 </div>
 

@@ -32,9 +32,9 @@ class ResetPasswordService {
         }
 
         try {
-            await axios.post(OTP_SERVICE_URL + "/send-otp", { email })
+            await axios.post(OTP_SERVICE_URL + "/send-otp", { email });
         } catch (error) {
-            throw new customError(400, "Error sending OTP")
+            throw new customError(400, "Error sending OTP");
         }
         return "OTP requested successfully";
     }
@@ -77,10 +77,12 @@ class ResetPasswordService {
         }
 
         // Send the OTP
-        await axios.post(OTP_SERVICE_URL + "/resend-otp", { email }).catch((e) => {
-            console.error("Error sending OTP");
-            throw new customError(400, "Error resending OTP")
-        });
+        await axios
+            .post(OTP_SERVICE_URL + "/resend-otp", { email })
+            .catch((e) => {
+                console.error("Error sending OTP");
+                throw new customError(400, "Error resending OTP");
+            });
 
         return "OTP resent successfully";
     }

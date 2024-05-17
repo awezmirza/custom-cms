@@ -4,9 +4,9 @@
     width: 80vw;
     margin: auto;
     height: 95vh;
-    /* background: blue; */
 }
 
 .table-container {
     width: 100%;
+    position: relative;
 }

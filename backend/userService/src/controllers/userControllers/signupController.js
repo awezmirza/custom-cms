@@ -1,8 +1,5 @@
 import UserService from "../../services/userService.js";
-import {
-    validateEmail,
-    validatePassword
-} from "../../utils/index.js";
+import { validateEmail, validatePassword } from "../../utils/index.js";
 import { customError } from "../../errors/errorUtils/index.js";
 
 const signup = async (req, res) => {

@@ -1,0 +1,10 @@
+.update-row-form-container {
+    height: 83vh;
+    width: 100%;
+    background: #1e1f20;
+    position: absolute;
+    bottom: 0;
+    border-radius: 25px;
+    border: 1px solid rgb(118, 118, 118);
+    z-index: 2;
+}

@@ -31,7 +31,10 @@ router.patch("/add-table", asyncErrorHandler(addTable));
 router.get("/get-table-name/:tableId", asyncErrorHandler(getTableNameById));
 router.patch("/edit-table-name/:tableId", asyncErrorHandler(editTableName));
 router.delete("/delete-table/:tableId", asyncErrorHandler(deleteTable));
-router.get("/verify-table-ownership/:tableId", asyncErrorHandler(verifyTableOwnership));
+router.get(
+    "/verify-table-ownership/:tableId",
+    asyncErrorHandler(verifyTableOwnership)
+);
 
 router.use("/google-web-login", googleWebLoginRouter);
 router.use("/reset-password", resetPasswordRouter);

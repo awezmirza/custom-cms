@@ -10,9 +10,7 @@ const useCreateTableForm = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const { accessToken } = useSelector(
-        (state) => state.userDataSlice
-    );
+    const { accessToken } = useSelector((state) => state.userDataSlice);
 
     const [tableName, setTableName] = useState("");
     const [fields, setFields] = useState([
@@ -29,12 +27,10 @@ const useCreateTableForm = () => {
             event.preventDefault();
             // Validation
             if (!tableName) {
-                return toast.error(
-                    "Table Name is required");
+                return toast.error("Table Name is required");
             }
             if (!fields || fields.length === 0) {
-                return toast.error(
-                    "At least one field is required");
+                return toast.error("At least one field is required");
             }
 
             let requestFields = [];
@@ -50,16 +46,18 @@ const useCreateTableForm = () => {
                     name: field.name,
                     required: field.required.value,
                     type: field.type.value,
-                    unique: field.unique.value,
-                })
+                    unique: field.unique.value
+                });
             }
 
             const formData = { tableName, fields: requestFields };
 
             const res = await toast.promise(
-                axios.post(TABLES_SERVICE_URL + "/create-table", {
-                    formData
-                },
+                axios.post(
+                    TABLES_SERVICE_URL + "/create-table",
+                    {
+                        formData
+                    },
                     {
                         headers: {
                             "access-token": accessToken
@@ -77,8 +75,8 @@ const useCreateTableForm = () => {
         } catch (error) {
             toast.error(
                 error?.response?.data?.message ||
-                error?.message ||
-                "Something went wrong"
+                    error?.message ||
+                    "Something went wrong"
             );
         }
     };

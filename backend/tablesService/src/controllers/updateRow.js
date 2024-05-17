@@ -3,7 +3,7 @@ import { USER_SERVICE_URL } from "../config/index.js";
 import { customError } from "../errors/errorUtils/index.js";
 import TableService from "../service/tableService.js";
 
-const deleteRow = async (req, res) => {
+const updateRow = async (req, res) => {
     // Validate Inputs
     const accessToken = req.headers["access-token"];
     if (!accessToken) {
@@ -11,10 +11,15 @@ const deleteRow = async (req, res) => {
     }
     const tableId = req.params.tableId;
 
-    // Take the row Id
     const rowId = req.query.rowId;
     if (!rowId) {
-        throw new customError(400, "Row id is required");
+        throw new customError(400, "Row Id is required");
+    }
+
+    const rowData = req.body.rowData;
+
+    if (!rowData) {
+        throw new customError(400, "Row Data is required");
     }
 
     // Verify Table Ownership
@@ -34,14 +39,14 @@ const deleteRow = async (req, res) => {
         );
     }
 
-    // Delete row from table
+    // Add row to table
     const tableService = new TableService();
-    await tableService.deleteRow(tableId, rowId);
+    await tableService.updateRow(tableId, rowData, rowId);
 
     return res.status(201).json({
-        message: "Row Deleted Successfully",
+        message: "Row Added Successfully",
         success: true
     });
 };
 
-export default deleteRow;
+export default updateRow;

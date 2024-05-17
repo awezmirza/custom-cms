@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import Shimmer from "../components/Shimmer";
 import "../styles/homePageStyles/home.css";
 import TableDataContainer from "../components/homePageComponents/TableDataContainer.jsx";
@@ -15,7 +14,6 @@ const Home = () => {
                     <TableDataContainer />
                 </>
             )}
-            <Link to={"/auth/login"}>Login</Link>
         </div>
     );
 };

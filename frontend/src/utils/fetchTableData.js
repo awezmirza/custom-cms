@@ -1,10 +1,10 @@
-import axios from 'axios';
-import { TABLES_SERVICE_URL } from './constant';
+import axios from "axios";
+import { TABLES_SERVICE_URL } from "./constant";
 
 export const fetchTableData = async (tableId, accessToken) => {
     try {
-
-        const response = await axios.get(`${TABLES_SERVICE_URL}/view-table/${tableId}`,
+        const response = await axios.get(
+            `${TABLES_SERVICE_URL}/view-table/${tableId}`,
             {
                 headers: {
                     "access-token": accessToken

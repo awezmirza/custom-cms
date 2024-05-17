@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     tableData: null,
@@ -8,7 +8,7 @@ const initialState = {
 };
 
 const tableDataSlice = createSlice({
-    name: 'table',
+    name: "table",
     initialState,
     reducers: {
         fetchDataStart(state) {
@@ -27,5 +27,6 @@ const tableDataSlice = createSlice({
     }
 });
 
-export const { fetchDataStart, fetchDataSuccess, fetchDataFailure } = tableDataSlice.actions;
+export const { fetchDataStart, fetchDataSuccess, fetchDataFailure } =
+    tableDataSlice.actions;
 export default tableDataSlice.reducer;

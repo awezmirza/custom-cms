@@ -9,6 +9,7 @@ import {
 } from "../../../config/tableDataSlice";
 import "../../../styles/tablePageStyles/lowerPart.css";
 import TableDataContainer from "./TableDataContainer";
+import AddRowContainer from "./AddRowContainer";
 
 const LowerPart = () => {
     const dispatch = useDispatch();
@@ -29,9 +30,10 @@ const LowerPart = () => {
         fetchData();
     }, [tableId]);
     return (
-        <div className="lower-part-container">
+        <>
             <TableDataContainer />
-        </div>
+            <AddRowContainer />
+        </>
     );
 };
 

@@ -2,7 +2,6 @@ import customError from "../../errors/errorUtils/customError.js";
 import UserService from "../../services/userService.js";
 
 const getTableNameById = async (req, res) => {
-
     const accessToken = req.headers["access-token"];
     if (!accessToken) {
         throw new customError(400, "Token is required");

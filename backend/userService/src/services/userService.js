@@ -2,11 +2,8 @@ import UserRepository from "../repository/userRepository.js";
 import { JWT_SECRET_KEY } from "../config/index.js";
 import jwt from "jsonwebtoken";
 import { customError } from "../errors/errorUtils/index.js";
-import {
-    compareBcryptHash,
-    hashUsingBcrypt
-} from "../utils/index.js";
-import { v4 as uuidv4 } from 'uuid';
+import { compareBcryptHash, hashUsingBcrypt } from "../utils/index.js";
+import { v4 as uuidv4 } from "uuid";
 
 class UserService {
     constructor() {
@@ -21,7 +18,6 @@ class UserService {
     }
 
     async login(email, plainPass) {
-
         const user = await this.userRepository.getOneByData({ email });
         if (!user) {
             throw new customError(400, "No user found");
@@ -99,10 +95,7 @@ class UserService {
         return token;
     }
 
-    async getUserDetails(
-        data,
-        fields = "_id"
-    ) {
+    async getUserDetails(data, fields = "_id") {
         const user = await this.userRepository.getOneByData(data, fields);
         if (!user) {
             throw new customError(400, "No user found");
@@ -111,7 +104,7 @@ class UserService {
     }
 
     async addTable(userId, tableName) {
-        // create a unique table id 
+        // create a unique table id
         const initialTableId = "table_" + uuidv4();
         const tableId = initialTableId.replaceAll("-", "_");
         const tableData = { tableName, tableId };
@@ -123,7 +116,6 @@ class UserService {
     }
 
     async getTableNameById(userId, tableId) {
-
         const userData = await this.getUserDetails({ _id: userId }, "tables");
 
         const tableData = userData.tables;

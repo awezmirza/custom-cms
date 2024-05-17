@@ -3,50 +3,28 @@ import "../styles/profile.css";
 import { useSelector } from "react-redux";
 
 const Profile = () => {
-    const userData = useSelector((state) => state.userDataSlice);
+    const userData = useSelector(
+        (state) => state.userDataSlice.userProfileDetails
+    );
+    console.log(userData);
 
     return (
-        <div>
-            <div className="profile-card-container">
-                <div className="pfcontainer">
-                    <div className="topbarpf">Profile Details</div>
-                    <div className="details">
-                        <div className="data-label-container">
-                            <div className="profile-label"> Username </div>
-                            <div className="profile-data">
-                                {userData.username || "username"}
-                                <span className="material-symbols-rounded">
-                                    edit
-                                </span>
-                            </div>
-                        </div>
-                        <div className="data-label-container">
-                            <div className="profile-label"> Email </div>
-                            <div className="profile-data">
-                                {userData.email || "email"}
-                            </div>
-                        </div>
-                        <div className="data-label-container">
-                            <div className="profile-label"> Discord </div>
-                            <div className="profile-data">
-                                {userData.discordusername || "discordusername"}
-                                {userData.discordusername ? (
-                                    <span className="material-symbols-rounded">
-                                        link_off
-                                    </span>
-                                ) : (
-                                    <span className="material-symbols-rounded">
-                                        link
-                                    </span>
-                                )}
-                            </div>
-                        </div>
+        <div className="profile-page-container">
+            {userData && (
+                <>
+                    <div className="pic-container">
+                        <img
+                            class="navbar-profile-pic"
+                            src="https://lh3.googleusercontent.com/a/ACg8ocJSLj4CSoCha3ZAYa6o18m8ZHShSajOqw2qLD58amwY8L7izVQl=s96-c"
+                            alt="User Profile Pic"
+                        />
                     </div>
-                    <div id="SignOutButtonContainer">
-                        <button id="SignOutButton">Sign Out</button>
+                    <div className="profile-details">
+                        <div>Email: {userData.email}</div>
+                        <div>Total Tables: {userData.tables.length || 0}</div>
                     </div>
-                </div>
-            </div>
+                </>
+            )}
         </div>
     );
 };

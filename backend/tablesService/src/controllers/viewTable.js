@@ -4,7 +4,6 @@ import customError from "../errors/errorUtils/customError.js";
 import TableService from "../service/tableService.js";
 
 const viewTable = async (req, res) => {
-
     // Get access token
     const accessToken = req.headers["access-token"];
     if (!accessToken) {
@@ -14,17 +13,21 @@ const viewTable = async (req, res) => {
     // Get Table Id
     const { tableId } = req.params;
 
-    // Send the data to user service to verify token and table ownership 
+    // Send the data to user service to verify token and table ownership
     try {
-        await axios.get(USER_SERVICE_URL + "/verify-table-ownership/" + tableId,
+        await axios.get(
+            USER_SERVICE_URL + "/verify-table-ownership/" + tableId,
             {
                 headers: {
                     "access-token": accessToken
                 }
             }
-        )
+        );
     } catch (error) {
-        throw new customError(error.response.status || 400, error.response.data.message || "Something went wrong");
+        throw new customError(
+            error.response.status || 400,
+            error.response.data.message || "Something went wrong"
+        );
     }
 
     // Get the table
@@ -36,6 +39,6 @@ const viewTable = async (req, res) => {
         data,
         success: true
     });
-}
+};
 
 export default viewTable;

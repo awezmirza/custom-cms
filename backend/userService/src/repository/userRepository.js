@@ -25,7 +25,7 @@ class UserRepository {
     }
 
     async addTable(userId, tableData) {
-        // Get users object by user Id 
+        // Get users object by user Id
         const user = await User.findById(userId);
         if (!user) {
             throw new customError(400, "No user found");
@@ -33,8 +33,9 @@ class UserRepository {
         // Push the {tableName, tableId} to user's tables array
         const { tableName, tableId } = tableData;
         user.tables.push({
-            tableName, tableId
-        })
+            tableName,
+            tableId
+        });
         await user.save();
     }
 
@@ -63,7 +64,9 @@ class UserRepository {
             throw new customError(400, "No user found");
         }
         const previousTablesLength = userData.tables.length;
-        userData.tables = userData.tables.filter(table => table.tableId !== tableId);
+        userData.tables = userData.tables.filter(
+            (table) => table.tableId !== tableId
+        );
         if (userData.tables.length === previousTablesLength) {
             throw new customError(400, "No table found");
         }

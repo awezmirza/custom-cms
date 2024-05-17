@@ -5,7 +5,7 @@ import validatePassword from "../../utils/validatePassword.js";
 const login = async (req, res) => {
     const email = req.body.email?.toLowerCase();
     const password = req.body.password;
-    if (!(email)) {
+    if (!email) {
         throw new customError(400, "Email is required");
     }
     validatePassword(password);

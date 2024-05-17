@@ -12,10 +12,12 @@ const userSchema = new mongoose.Schema(
             type: String
         },
         tables: {
-            type: [{
-                tableName: String,
-                tableId: String
-            }],
+            type: [
+                {
+                    tableName: String,
+                    tableId: String
+                }
+            ],
             default: []
         }
     },

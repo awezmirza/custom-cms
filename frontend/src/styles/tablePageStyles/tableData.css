@@ -77,7 +77,7 @@
 .col-delete-confirmation-popup {
     position: absolute;
     left: 10px;
-    top: 10px;
+    top: 87px;
     background: blue;
     display: flex;
     flex-direction: column;
@@ -96,7 +96,6 @@
     border: 1px solid rgb(118, 118, 118);
     padding: 2px 15px;
     border-radius: 10px;
-
 }
 
 .waring-text {

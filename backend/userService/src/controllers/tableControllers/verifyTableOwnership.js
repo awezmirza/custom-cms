@@ -2,7 +2,6 @@ import UserService from "../../services/userService.js";
 import { customError } from "../../errors/errorUtils/index.js";
 
 const verifyTableOwnership = async (req, res) => {
-
     // Verify access token
     const accessToken = req.headers["access-token"];
     if (!accessToken) {

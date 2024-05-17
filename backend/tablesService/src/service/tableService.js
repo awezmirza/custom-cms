@@ -1,5 +1,9 @@
 import TableRepository from "../repository/tableRepository.js";
-import { generateModelColumns } from "../utils/index.js"
+import {
+    generateModelColumns,
+    generateModelRows,
+    generateUpdateModelRows
+} from "../utils/index.js";
 
 class TableService {
     constructor() {
@@ -23,6 +27,27 @@ class TableService {
 
     async deleteRow(tableId, rowId) {
         await this.tableRepository.deleteRow(tableId, rowId);
+    }
+
+    async addRow(tableId, rowData) {
+        // validate row data
+        const { tableColumns } = await this.viewTable(tableId);
+        const { columnNameString, valuesString } = generateModelRows(
+            rowData,
+            tableColumns
+        );
+        await this.tableRepository.addRow(
+            columnNameString,
+            valuesString,
+            tableId
+        );
+    }
+
+    async updateRow(tableId, rowData, rowId) {
+        // validate row data
+        const { tableColumns } = await this.viewTable(tableId);
+        const valuesString = generateUpdateModelRows(rowData, tableColumns);
+        await this.tableRepository.updateRow(valuesString, tableId, rowId);
     }
 }
 
