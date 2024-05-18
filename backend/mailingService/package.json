@@ -4,7 +4,8 @@
   "description": "This service will be responsible for sending mails",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
   },
   "type": "module",
   "author": "",
